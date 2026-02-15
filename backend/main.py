@@ -40,7 +40,8 @@ def tree_to_jsx(node, indent=0):
     if not children:
         return f"{space}<{node['type']}{props_str} />"
 
-    inner = "\n".join(tree_to_jsx(child, indent + 1) for child in children)
+    inner_list = [tree_to_jsx(child, indent + 1) for child in children]
+    inner = "\n".join(inner_list)
     return f"{space}<{node['type']}{props_str}>\n{inner}\n{space}</{node['type']}>"
 
 
