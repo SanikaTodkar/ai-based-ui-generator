@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: ai-ui-backend
+    env: python
+    plan: free
+    buildCommand: pip install pipenv && pipenv install --system --deploy
+    startCommand: uvicorn main:app --host 0.0.0.0 --port 10000
+    rootDir: backend
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_BASE_URL
+        sync: false
+    runtime: python
+    pythonVersion: 3.12
