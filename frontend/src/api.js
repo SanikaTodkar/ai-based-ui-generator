@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "http://localhost:8000";
+const API = import.meta.env.VITE_API_BASE_URL;
 
 export const sendMessage = async (message) => {
   const res = await axios.post(`${API}/agent`, { message });
